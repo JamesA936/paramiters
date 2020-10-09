@@ -12,12 +12,39 @@ namespace Parameters
         {
             int pizzas = AskInt("How many pizzas would you like?");
             int chips = AskInt("How many chips would you like?");
-            char name = Askchar(char.Parse("what is your name"));
+            string name = Askstring("what is your name");
+            string[] choise = new string[] { "Margherita", "Pepperoni", "Pinaple" };
 
             // AskDouble (asks a question and returns a double)
             // AskChar (asks a question and returns just one character)
             // AskIntBetween asks the user to type in a number between a min and max value
         }
+
+        static void main(string[] args)
+        {
+            string[] choise = new string[] { "Margherita", "Pepperoni", "Pinaple" };
+            string mypizza = choosefrom(choise);
+            Console.WriteLine(mypizza);
+        }
+        static string choosefrom(string[] options)
+        {
+            for (int i = 0; i < options.Length; i++)
+            {
+                Console.WriteLine((1 + 1) + ") " + options[i]);
+            }
+            Console.Write("make a choise");
+            string selection = Console.ReadLine();
+
+
+
+
+
+        
+        }
+
+
+
+
 
         static int AskInt(string question)
         {
@@ -35,20 +62,15 @@ namespace Parameters
                 }
             }
         }
-
         // AskString (asks a question and returns a string)
-
-
-
-
-        static char Askchar(char question)
+        static string Askstring(string question)
         {
             while (true)
             {
                 Console.Write(question + ": ");
                 try
                 {
-                    char value = char.Parse(Console.ReadLine());
+                    string value = (Console.ReadLine());
                     return value;
                 }
                 catch
